@@ -3,6 +3,7 @@ import './App.css';
 import ChooseRole from './components/ChooseRole';
 import MainPage from './components/MainPage';
 import ProfilePage from './components/ProfilePage';
+import React, {useEffect} from 'react';
 const App = () => {
   useEffect(() => {
     if (window.Telegram) {
