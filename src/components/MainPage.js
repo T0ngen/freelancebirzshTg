@@ -99,7 +99,7 @@ const MainPage = () => {
                     color="primary"
                 />
                             </Stack>
-            {/* <Footer active={'active'} /> */}
+            <Footer active={'active'} />
         </div>
     );
 };
