@@ -107,8 +107,8 @@ const MainPage = () => {
                         <div className='birzha-item-about'>{item.text}</div>
                         {/* {item.text} - {item.category} - {item.price} */}
                         <div className='birzha-item-downline'>
-                            <CreditCardIcon fontSize='medium'/>
-                            <div className='birzha-item-price'>Договорная</div>
+                            <CreditCardIcon fontSize='medium'/>Цена:
+                            <div className='birzha-item-price'>договорная</div>
                         </div>
                     </div>
                 ))}
