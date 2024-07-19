@@ -3,51 +3,64 @@ import Footer from './Footer';
 import FilterMenu from './FilterMenu';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import DesignServicesIcon from '@mui/icons-material/DesignServices';
+import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+
+
+const fakeData = [
+    { id: 1, text: 'Нужен дизайнер для создания аватарки', category: 'Дизайн', price: '1000' },
+    { id: 2, text: 'Сделать логотип', category: 'Дизайн', price: '1000' },
+    { id: 3, text: 'Ивовововоа оаокококококококооккок окоококококококококок кокококооко', category: 'Дизайн', price: '1000' },
+    { id: 4, text: 'Помощь в переносе БД с Supabase в Postgressql', category: 'Разработка', price: '1000' },
+    { id: 5, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
+    { id: 6, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 7, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 8, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 9, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 10, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 11, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 12, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
+    { id: 13, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
+    { id: 14, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 15, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 16, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 17, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 18, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 19, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 20, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 21, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 22, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
+    { id: 23, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
+    { id: 24, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 25, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 26, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 38, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 39, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 40, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 41, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 42, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
+    { id: 43, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
+    { id: 44, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
+    { id: 45, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+    { id: 46, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
+];
 
 const MainPage = () => {
-    const fakeData = [
-        { id: 1, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 2, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 3, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 4, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
-        { id: 5, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
-        { id: 6, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 7, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 8, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 9, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 10, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 11, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 12, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
-        { id: 13, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
-        { id: 14, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 15, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 16, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 17, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 18, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 19, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 20, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 21, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 22, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
-        { id: 23, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
-        { id: 24, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 25, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 26, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 38, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 39, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 40, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 41, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 42, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
-        { id: 43, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
-        { id: 44, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
-        { id: 45, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-        { id: 46, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
-    ];
 
     const categoryColors = {
         'Дизайн': '#aebaba',
         'Разработка': '#bbb2cd',
         'Маркетинг': '#d4a4a9',
         // Добавьте дополнительные категории и их цвета по мере необходимости
+    };
+
+    const categoryIcons = {
+        'Дизайн': <DesignServicesIcon fontSize='large' />,
+        'Разработка': <TerminalIcon fontSize='large'/>,
+        'Маркетинг': <StackedLineChartIcon fontSize='large'/>,
+        // Добавьте дополнительные категории и их иконки по мере необходимости
     };
 
     const [filteredData, setFilteredData] = useState(fakeData);
@@ -84,9 +97,19 @@ const MainPage = () => {
                     <div
                         className='birzha-item'
                         key={item.id}
-                        style={{ backgroundColor: categoryColors[item.category] }}
-                    >
-                        {item.text} - {item.category} - {item.price}
+                        style={{ backgroundColor: categoryColors[item.category], padding: '10px', borderRadius: '5px', margin: '5px' }}
+                    >   
+                        <div className='birzha-item-topline'>
+                        {categoryIcons[item.category]}
+                        <div className='birzha-item-time'>около 1 часа назад</div>
+                        </div>
+                        
+                        <div className='birzha-item-about'>{item.text}</div>
+                        {/* {item.text} - {item.category} - {item.price} */}
+                        <div className='birzha-item-downline'>
+                            <CreditCardIcon fontSize='medium'/>
+                            <div className='birzha-item-price'>Договорная</div>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -98,7 +121,7 @@ const MainPage = () => {
                     variant="outlined"
                     color="primary"
                 />
-                            </Stack>
+            </Stack>
             <Footer active={'active'} />
         </div>
     );

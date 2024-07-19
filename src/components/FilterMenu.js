@@ -14,12 +14,13 @@ const FilterMenu = ({ handleFilterChange }) => {
     return (
         <div className="container">
             <FormControl sx={{ m: 3,  minWidth: 220 }}>
-                <InputLabel id="category-select-label">Фильтр</InputLabel>
+                <InputLabel id="category-select-label">Фильтр по категориям</InputLabel>
                 <Select
                     labelId="category-select-label"
                     id="category-select"
                     value={selectedCategory}
                     label="Фильтр по категории"
+                    sx={{ borderRadius: '15px'  }}
                     onChange={handleCategoryChange}
                 >
                     <MenuItem value="">

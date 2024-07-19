@@ -281,7 +281,7 @@ svg {
 }
 
 .birzha-item{
-  height: 150px;
+  height: auto;
   border: 1px solid black;
   width: 80%;
   margin: 10px;
@@ -306,4 +306,44 @@ footer {
   width: 100%; /* Заставляем занимать всю ширину страницы */
   background-color: white; /* Задаем белый фон, можно изменить */
   z-index: 1000; /* Устанавливаем высокий z-index, чтобы поверх контента */
+}
+
+
+.birzha-item-topline{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  justify-content: space-between;
+}
+
+
+.birzha-item-time{
+  
+  
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+
+
+.birzha-item-about{
+  margin: 10px;
+  font-size: 25px;
+  font-weight: 600;
+  overflow: hidden;
+  
+  
+}
+
+
+.birzha-item-downline{
+  display: flex;
+  margin-left: 10px;
+  padding-top: 15px;
+  align-items: center;
+  
+}
+
+.birzha-item-price{
+  margin-left: 10px;
 }
