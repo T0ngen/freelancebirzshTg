@@ -4,7 +4,6 @@ import FilterMenu from './FilterMenu';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-
 const MainPage = () => {
     const fakeData = [
         { id: 1, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
@@ -25,6 +24,13 @@ const MainPage = () => {
         { id: 16, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
     ];
 
+    const categoryColors = {
+        'Дизайн': '#aebaba',
+        'Разработка': '#bbb2cd',
+        'Маркетинг': '#d4a4a9',
+        // Добавьте дополнительные категории и их цвета по мере необходимости
+    };
+
     const [filteredData, setFilteredData] = useState(fakeData);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
@@ -40,7 +46,7 @@ const MainPage = () => {
 
     const handlePageChange = (event, page) => {
         setCurrentPage(page);
-        window.scrollTo(0, 0);  // Прокручиваем страницу наверх
+        window.scrollTo(0, 0); // Прокручиваем страницу наверх
     };
 
     // Вычисляем текущие элементы на странице
@@ -56,7 +62,13 @@ const MainPage = () => {
             <FilterMenu handleFilterChange={handleFilterChange} />
             <div className='container-birzha-items'>
                 {currentItems.map(item => (
-                    <div className='birzha-item' key={item.id}>{item.text} - {item.category} - {item.price}</div>
+                    <div
+                        className='birzha-item'
+                        key={item.id}
+                        style={{ backgroundColor: categoryColors[item.category] }}
+                    >
+                        {item.text} - {item.category} - {item.price}
+                    </div>
                 ))}
             </div>
             <Stack className='pagination' spacing={2} alignItems="center">
@@ -67,7 +79,7 @@ const MainPage = () => {
                     variant="outlined"
                     color="primary"
                 />
-            </Stack>
+                            </Stack>
             <Footer active={'active'} />
         </div>
     );
