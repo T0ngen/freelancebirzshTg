@@ -4,6 +4,7 @@ import FilterMenu from './FilterMenu';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
+
 const MainPage = () => {
     const fakeData = [
         { id: 1, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
@@ -51,7 +52,7 @@ const MainPage = () => {
     const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
     return (
-        <>
+        <div className="main-page">
             <FilterMenu handleFilterChange={handleFilterChange} />
             <div className='container-birzha-items'>
                 {currentItems.map(item => (
@@ -68,7 +69,7 @@ const MainPage = () => {
                 />
             </Stack>
             <Footer active={'active'} />
-        </>
+        </div>
     );
 };
 

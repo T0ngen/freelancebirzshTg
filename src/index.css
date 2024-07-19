@@ -275,6 +275,8 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1; /* Этот элемент будет занимать всю возможную высоту */
+  overflow-y: auto; /* Добавляем прокрутку по вертикали */
   
 }
 
@@ -289,4 +291,19 @@ svg {
 .pagination{
   padding-top: 20px;
   padding-bottom: 180px;
+}
+
+/* MainPage.css */
+.main-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  position: sticky; /* Фиксируем Footer */
+  bottom: 0; /* Привязываем к нижней части экрана */
+  width: 100%; /* Заставляем занимать всю ширину страницы */
+  background-color: white; /* Задаем белый фон, можно изменить */
+  z-index: 1000; /* Устанавливаем высокий z-index, чтобы поверх контента */
 }
