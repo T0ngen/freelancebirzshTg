@@ -125,17 +125,16 @@ svg {
 }
 
 .footer-block {
-  
-  width: 100%;
-  position: fixed;
-  margin: 0;
-
-  bottom: 0;
-  height: auto;
-  background-color: #f7f7f7;
-  z-index: 100; /* Опционально */
+    width: 100%;
+    position: fixed;
+    margin: 0;
+    bottom: 0;
+    height: auto;
+    background-color: #f7f7f7;
+    z-index: 100; /* Опционально, чтобы быть выше других элементов */
+    left: 0; /* Добавляет фиксацию к левому краю */
+    right: 0; /* Добавляет фиксацию к правому краю */
 }
-
 
 .footer-button{
   display: flex;
@@ -288,5 +287,6 @@ svg {
 }
 
 .pagination{
+  padding-top: 20px;
   padding-bottom: 180px;
 }
