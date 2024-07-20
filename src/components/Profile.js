@@ -21,7 +21,7 @@ const Profile = () => {
                 <div className='profile-userinfo2 row-info-profile'>
                     <div className='user-category-name'>Фрилансер</div>
                     <h4 className='username'>{"scdb22"}</h4>
-                    <p className='telegram-id'><b>ID:</b> {3131}</p>
+                    <p className='telegram-id'><b>ID:</b> {727098227}</p>
                 </div>
                 <div className='profile-userinfo2 row-balance'>
                     <BatteryChargingFullIcon sx={{ color: pink[500] }} fontSize="large" />
