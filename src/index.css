@@ -290,12 +290,14 @@ svg {
 
 .pagination{
   padding-top: 20px;
-  padding-bottom: 180px;
+  margin-bottom: 180px;
 }
 
 /* MainPage.css */
 .main-page {
+  
   display: flex;
+  height: auto;
   flex-direction: column;
   min-height: 100vh;
 }
