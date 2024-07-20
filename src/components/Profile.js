@@ -6,7 +6,16 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 
 const Profile = () => {
     useEffect(() => {
+        // Отключение прокрутки при монтировании компонента
+        document.body.style.overflow = 'hidden';
+
+        // Прокрутка к началу страницы
         window.scrollTo(0, 0);
+
+        // Включение прокрутки при размонтировании компонента
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
     }, []); // Пустой массив зависимостей гарантирует, что эффект выполнится только при монтировании компонента
 
     return (

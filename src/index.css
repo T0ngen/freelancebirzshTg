@@ -399,17 +399,3 @@ footer {
   margin-left: 5px;
 }
 
-* Родительский контейнер */
-.parent-container {
-    display: flex;
-    justify-content: center; /* Центрирует по горизонтали */
-    align-items: center;     /* Центрирует по вертикали */
-    height: 100%;            /* Опционально, устанавливает высоту на 100%, если нужно центрировать по всей высоте родительского контейнера */
-}
-
-/* Контейнер с текстом */
-.task-text-in-popup {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center; /* Центрирует текст по горизонтали */
-}

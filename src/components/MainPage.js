@@ -1,4 +1,4 @@
-import React, { useState,  useEffect  } from 'react';
+import React, { useState } from 'react';
 import Footer from './Footer';
 import FilterMenu from './FilterMenu';
 import Pagination from '@mui/material/Pagination';
@@ -8,7 +8,7 @@ import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CloseIcon from '@mui/icons-material/Close';
-import { Drawer, Typography, Box, IconButton,  Modal } from '@mui/material';
+import { Drawer, Typography, Box, IconButton } from '@mui/material';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 const fakeData = [
@@ -49,154 +49,11 @@ const fakeData = [
     { id: 46, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
 ];
 
-// const MainPage = () => {
-//     const [open, setOpen] = useState(false);
-//     const [currentTask, setCurrentTask] = useState(null);
-
-//     const toggleDrawer = (state, task = null) => () => {
-//         setOpen(state);
-//         setCurrentTask(task);
-//     };
-
-//     const categoryColors = {
-//         'Дизайн': '#aebaba',
-//         'Разработка': '#bbb2cd',
-//         'Маркетинг': '#d4a4a9',
-//         // Добавьте дополнительные категории и их цвета по мере необходимости
-//     };
-
-//     const categoryIcons = {
-//         'Дизайн': <DesignServicesIcon fontSize='large' />,
-//         'Разработка': <TerminalIcon fontSize='large'/>,
-//         'Маркетинг': <StackedLineChartIcon fontSize='large'/>,
-//         // Добавьте дополнительные категории и их иконки по мере необходимости
-//     };
-
-//     const [filteredData, setFilteredData] = useState(fakeData);
-//     const [currentPage, setCurrentPage] = useState(1);
-//     const itemsPerPage = 10;
-
-//     const handleFilterChange = (category) => {
-//         setCurrentPage(1); // Сбросить текущую страницу при изменении фильтра
-//         if (category === '') {
-//             setFilteredData(fakeData);
-//         } else {
-//             setFilteredData(fakeData.filter(item => item.category === category));
-//         }
-//     };
-
-//     const handlePageChange = (event, page) => {
-//         setCurrentPage(page);
-//         window.scrollTo(0, 0); // Прокручиваем страницу наверх
-//     };
-
-//     // Вычисляем текущие элементы на странице
-//     const indexOfLastItem = currentPage * itemsPerPage;
-//     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-//     const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-
-//     // Вычисляем количество страниц
-//     const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-
-//     return (
-//         <div className="main-page">
-//             <FilterMenu handleFilterChange={handleFilterChange} />
-//             <div className='container-birzha-items'>
-//                 {currentItems.map(item => (
-//                     <div
-//                         className='birzha-item'
-//                         key={item.id}
-//                         style={{ backgroundColor: categoryColors[item.category], padding: '10px', borderRadius: '5px', margin: '5px' }}
-//                         onClick={toggleDrawer(true, item)}
-//                     >   
-//                         <div className='birzha-item-topline'>
-//                             {categoryIcons[item.category]}
-//                             <div className='birzha-item-time'>около 1 часа назад</div>
-//                         </div>
-//                         <div className='birzha-item-about'>{item.text}</div>
-//                         <div className='birzha-item-downline'>
-//                             <CreditCardIcon fontSize='medium' />Цена:
-//                             <div className='birzha-item-price'>договорная</div>
-//                         </div>
-//                     </div>
-//                 ))}
-//             </div>
-//             <Stack className='pagination' spacing={2} alignItems="center">
-//                 <Pagination
-//                     count={totalPages}
-//                     page={currentPage}
-//                     onChange={handlePageChange}
-//                     variant="outlined"
-//                     color="primary"
-//                 />
-//             </Stack>
-//             <Footer active={'active'} />
-            
-//             <Drawer
-//                 anchor='bottom'
-//                 open={open}
-//                 onClose={toggleDrawer(false)}
-//                 PaperProps={{
-//                     sx: {
-//                         height: '90%',
-//                         borderTopLeftRadius: '16px',
-//                         borderTopRightRadius: '16px',
-//                         boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.2)',
-//                         backgroundColor: '#e5e6e0',
-//                     },
-//                 }}
-//             >
-//                 <Box sx={{ p: 2 }}>
-//                 <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-//                     <Typography variant="h6">{currentTask ? currentTask.text : ''}</Typography>
-                    
-//                     <IconButton onClick={toggleDrawer(false)}>
-//                         <CloseIcon fontSize="large" />
-//                     </IconButton>
-//                 </Box>
-//                 <div className='time-task-container'>
-//                 <AccessTimeIcon/>
-//                 <div className='time-task-time'>Около 1 часа назад</div>
-//                 </div>
-//                     {currentTask ? (
-//                         <>
-                           
-//                            <div className='task-text-in-popup-container'>
-//                             <Typography className='task-text-in-popup' variant="body2">{currentTask.full_text || 'Нет дополнительной информации'}</Typography>
-//                             </div>
-//                             <div className='task-text-button'>
-//                                 <div className='task-text-button-text'>Откликнуться</div>
-//                                 <DoneOutlineIcon/>
-//                             </div>
-//                         </>
-//                     ) : (
-//                         <Typography variant="body2">Задача не выбрана</Typography>
-//                     )}
-//                 </Box>
-//             </Drawer>
-//         </div>
-//     );
-// };
-
-// export default MainPage;
-
 const MainPage = () => {
     const [open, setOpen] = useState(false);
     const [currentTask, setCurrentTask] = useState(null);
 
-    useEffect(() => {
-        if (open) {
-            document.body.style.overflow = 'hidden';  // Отключение прокрутки
-        } else {
-            document.body.style.overflow = 'auto';    // Включение прокрутки
-        }
-
-        return () => {
-            document.body.style.overflow = 'auto';    // Чистка эффекта
-        };
-    }, [open]);
-
-    const toggleModal = (state, task = null) => () => {
+    const toggleDrawer = (state, task = null) => () => {
         setOpen(state);
         setCurrentTask(task);
     };
@@ -210,8 +67,8 @@ const MainPage = () => {
 
     const categoryIcons = {
         'Дизайн': <DesignServicesIcon fontSize='large' />,
-        'Разработка': <TerminalIcon fontSize='large' />,
-        'Маркетинг': <StackedLineChartIcon fontSize='large' />,
+        'Разработка': <TerminalIcon fontSize='large'/>,
+        'Маркетинг': <StackedLineChartIcon fontSize='large'/>,
         // Добавьте дополнительные категории и их иконки по мере необходимости
     };
 
@@ -250,8 +107,8 @@ const MainPage = () => {
                         className='birzha-item'
                         key={item.id}
                         style={{ backgroundColor: categoryColors[item.category], padding: '10px', borderRadius: '5px', margin: '5px' }}
-                        onClick={toggleModal(true, item)}
-                    >
+                        onClick={toggleDrawer(true, item)}
+                    >   
                         <div className='birzha-item-topline'>
                             {categoryIcons[item.category]}
                             <div className='birzha-item-time'>около 1 часа назад</div>
@@ -274,46 +131,49 @@ const MainPage = () => {
                 />
             </Stack>
             <Footer active={'active'} />
-            <Modal
+            
+            <Drawer
+                anchor='bottom'
                 open={open}
-                onClose={toggleModal(false)}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
+                onClose={toggleDrawer(false)}
+                PaperProps={{
+                    sx: {
+                        height: '90%',
+                        borderTopLeftRadius: '16px',
+                        borderTopRightRadius: '16px',
+                        boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.2)',
+                        backgroundColor: '#e5e6e0',
+                    },
+                }}
             >
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: 400,
-                        bgcolor: 'background.paper',
-                        boxShadow: 24,
-                        p: 4,
-                        borderRadius: '8px'
-                    }}
-                >
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Box className="parent-container" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                            <Typography variant="h6">
-                                <div className="task-text-in-popup">
-                                    {currentTask ? currentTask.text : 'Задача не выбрана'}
-                                </div>
-                            </Typography>
-                        </Box>
-                        <IconButton onClick={toggleModal(false)}>
-                            <CloseIcon fontSize="large" />
-                        </IconButton>
-                    </Box>
-                    {currentTask && (
-                        <Box sx={{ mt: 2 }}>
-                            <Typography variant="subtitle1">{currentTask.category}</Typography>
-                            <Typography variant="body2">{currentTask.price} руб.</Typography>
-                            <Typography variant="body2">{currentTask.full_text || 'Нет дополнительной информации'}</Typography>
-                        </Box>
+                <Box sx={{ p: 2 }}>
+                <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Typography variant="h6">{currentTask ? currentTask.text : ''}</Typography>
+                    
+                    <IconButton onClick={toggleDrawer(false)}>
+                        <CloseIcon fontSize="large" />
+                    </IconButton>
+                </Box>
+                <div className='time-task-container'>
+                <AccessTimeIcon/>
+                <div className='time-task-time'>Около 1 часа назад</div>
+                </div>
+                    {currentTask ? (
+                        <>
+                           
+                           <div className='task-text-in-popup-container'>
+                            <Typography className='task-text-in-popup' variant="body2">{currentTask.full_text || 'Нет дополнительной информации'}</Typography>
+                            </div>
+                            <div className='task-text-button'>
+                                <div className='task-text-button-text'>Откликнуться</div>
+                                <DoneOutlineIcon/>
+                            </div>
+                        </>
+                    ) : (
+                        <Typography variant="body2">Задача не выбрана</Typography>
                     )}
                 </Box>
-            </Modal>
+            </Drawer>
         </div>
     );
 };
