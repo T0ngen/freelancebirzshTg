@@ -388,3 +388,13 @@ footer {
   
   
 }
+
+.time-task-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-task-time{
+  margin-left: 5px;
+}

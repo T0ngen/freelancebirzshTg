@@ -10,7 +10,7 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CloseIcon from '@mui/icons-material/Close';
 import { Drawer, Typography, Box, IconButton } from '@mui/material';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
-
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 const fakeData = [
     { id: 1, text: 'Нужен дизайнер для создания аватарки', category: 'Дизайн', price: '1000', full_text: 'Ищем дизайнера для разработки дизайна упаковки контейнера с едой! Мы в поисках креативного дизайнера для разработки уникального и привлекательного дизайна макета для упаковки контейнера с едой. Работа срочная - на выполнение набросков по задаче всего несколько дней!',  },
     { id: 2, text: 'Сделать логотип', category: 'Дизайн', price: '1000' },
@@ -149,12 +149,15 @@ const MainPage = () => {
                 <Box sx={{ p: 2 }}>
                 <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Typography variant="h6">{currentTask ? currentTask.text : 'Задача не выбрана'}</Typography>
-                    <Typography variant="p">Около 1 часа назад</Typography>
+                    
                     <IconButton onClick={toggleDrawer(false)}>
                         <CloseIcon fontSize="large" />
                     </IconButton>
                 </Box>
-
+                <div className='time-task-container'>
+                <AccessTimeIcon/>
+                <div className='time-task-time'>Около 1 часа назад</div>
+                </div>
                     {currentTask ? (
                         <>
                            
