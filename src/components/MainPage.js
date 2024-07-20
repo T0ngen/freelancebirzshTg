@@ -148,7 +148,7 @@ const MainPage = () => {
             >
                 <Box sx={{ p: 2 }}>
                 <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography variant="h6">{currentTask ? currentTask.text : 'Задача не выбрана'}</Typography>
+                    <Typography variant="h6">{currentTask ? currentTask.text : ''}</Typography>
                     
                     <IconButton onClick={toggleDrawer(false)}>
                         <CloseIcon fontSize="large" />
