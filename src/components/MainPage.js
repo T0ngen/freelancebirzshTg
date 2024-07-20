@@ -158,6 +158,10 @@ const MainPage = () => {
                 <AccessTimeIcon/>
                 <div className='time-task-time'>Около 1 часа назад</div>
                 </div>
+                <div style={{paddingTop:'5px'}} className='time-task-container'>
+                <CreditCardIcon/>
+                <div className='time-task-time'>Цена: договорная</div>
+                </div>
                     {currentTask ? (
                         <>
                            
