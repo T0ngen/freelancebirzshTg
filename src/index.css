@@ -286,6 +286,7 @@ svg {
   width: 80%;
   margin: 10px;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .pagination{

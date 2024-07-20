@@ -7,7 +7,8 @@ import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
-
+import CloseIcon from '@mui/icons-material/Close';
+import { Drawer, Typography, Box, IconButton } from '@mui/material';
 
 const fakeData = [
     { id: 1, text: 'Нужен дизайнер для создания аватарки', category: 'Дизайн', price: '1000' },
@@ -47,8 +48,13 @@ const fakeData = [
     { id: 46, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
 ];
 
-const MainPage = () => {
 
+const MainPage = () => {
+    const [open, setOpen] = useState(false);
+    const toggleDrawer = (state) => () => {
+        setOpen(state);
+      };
+    
     const categoryColors = {
         'Дизайн': '#aebaba',
         'Разработка': '#bbb2cd',
@@ -98,7 +104,7 @@ const MainPage = () => {
                         className='birzha-item'
                         key={item.id}
                         style={{ backgroundColor: categoryColors[item.category], padding: '10px', borderRadius: '5px', margin: '5px' }}
-                    >   
+                    onClick={toggleDrawer(true)}>   
                         <div className='birzha-item-topline'>
                         {categoryIcons[item.category]}
                         <div className='birzha-item-time'>около 1 часа назад</div>
@@ -123,7 +129,81 @@ const MainPage = () => {
                 />
             </Stack>
             <Footer active={'active'} />
+            <Drawer
+        anchor='bottom'
+        open={open}
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          sx: {
+            height: 'auto',
+            minHeight:'90%',
+            borderTopLeftRadius: '16px',
+            borderTopRightRadius: '16px',
+            boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.2)',
+            backgroundColor: '#e5e6e0',
+            
+          },
+        }}
+      >
+         <Box
+        
+        sx={{
+          p: 2,
+          height: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          
+        //   alignItems: 'center',
+          backgroundColor: '#e5e6e0',
+        }}
+      > 
+        <Box
+            sx={{
+              marginTop: '56px',
+              width: '100%',
+              maxWidth: '90%', // Ограничение по ширине контейнера
+             
+              textOverflow: 'ellipsis',
+              wordWrap: 'break-word',
+              wordBreak: 'break-word',
+              display: 'flex',
+              alignItems: 'center',
+              flexDirection: 'column',
+              padding: '5px',
+              position:'relative'
+              
+              
+              
+              
+              
+            }}
+          >
+            <Typography
+              variant='h5'
+              sx={{ 
+                color: 'white',
+                // wordWrap: 'break-word',
+                // whiteSpace: 'normal',
+                // textAlign: 'center', // Это опционально и зависит от вашего желаемого выравнивания текста
+                
+                width: '100%',       // Задать ширину элемента, чтобы текст знал рамки, в которых он может переноситься
+              }}
+            >
+             
+            </Typography>
+            
+          </Box>
+
+          <IconButton
+            sx={{ position: 'fixed', top: 88, right: 26, color: 'bkack' }}
+            onClick={toggleDrawer(false)}
+          >
+            <CloseIcon fontSize='large' />
+          </IconButton></Box>
+     
+      </Drawer>
         </div>
+        
     );
 };
 
