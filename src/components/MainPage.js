@@ -89,18 +89,7 @@ const MainPage = () => {
         setCurrentPage(page);
         window.scrollTo(0, 0); // Прокручиваем страницу наверх
     };
-    useEffect(() => {
-        // Отключение прокрутки при монтировании компонента
-        document.body.style.overflow = 'hidden';
-
-        // Прокрутка к началу страницы
-
-        // Включение прокрутки при размонтировании компонента
-        return () => {
-            document.body.style.overflow = 'auto';
-        };
-    }, []); // Пустой массив зависимостей гарантирует, что эффект выполнится только при монтировании компонента
-
+   
     // Вычисляем текущие элементы на странице
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
