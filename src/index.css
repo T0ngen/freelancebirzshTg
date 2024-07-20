@@ -350,3 +350,41 @@ footer {
 .birzha-item-price{
   margin-left: 10px;
 }
+
+.close-icon-popup{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-text-in-popup-container{
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.task-text-in-popup{
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.task-text-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  border-radius: 15px;
+  width: auto;
+  background-color: var(--color-main);
+  cursor: pointer;
+}
+
+.task-text-button-text{
+  margin: 10px;
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+  
+  
+  
+}

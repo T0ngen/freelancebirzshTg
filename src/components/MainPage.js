@@ -9,11 +9,12 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CloseIcon from '@mui/icons-material/Close';
 import { Drawer, Typography, Box, IconButton } from '@mui/material';
+import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 
 const fakeData = [
-    { id: 1, text: 'Нужен дизайнер для создания аватарки', category: 'Дизайн', price: '1000' },
+    { id: 1, text: 'Нужен дизайнер для создания аватарки', category: 'Дизайн', price: '1000', full_text: 'Ищем дизайнера для разработки дизайна упаковки контейнера с едой! Мы в поисках креативного дизайнера для разработки уникального и привлекательного дизайна макета для упаковки контейнера с едой. Работа срочная - на выполнение набросков по задаче всего несколько дней!',  },
     { id: 2, text: 'Сделать логотип', category: 'Дизайн', price: '1000' },
-    { id: 3, text: 'Ивовововоа оаокококококококооккок окоококококококококок кокококооко', category: 'Дизайн', price: '1000' },
+    { id: 3, text: 'Ивовововоа оаокококококококооккок окоококококококококок кокококооко', category: 'Дизайн', price: '1000', full_text: 'Ищем дизайнера для разработки дизайна упаковки контейнера с едой! Мы в поисках креативного дизайнера для разработки уникального и привлекательного дизайна макета для упаковки контейнера с едой. Работа срочная - на выполнение набросков по задаче всего несколько дней!' },
     { id: 4, text: 'Помощь в переносе БД с Supabase в Postgressql', category: 'Разработка', price: '1000' },
     { id: 5, text: 'Необходимо создать сайт', category: 'Разработка', price: '1000' },
     { id: 6, text: 'Необходимо создать сайт', category: 'Дизайн', price: '1000' },
@@ -48,13 +49,15 @@ const fakeData = [
     { id: 46, text: 'Необходимо создать сайт', category: 'Маркетинг', price: '1000' },
 ];
 
-
 const MainPage = () => {
     const [open, setOpen] = useState(false);
-    const toggleDrawer = (state) => () => {
+    const [currentTask, setCurrentTask] = useState(null);
+
+    const toggleDrawer = (state, task = null) => () => {
         setOpen(state);
-      };
-    
+        setCurrentTask(task);
+    };
+
     const categoryColors = {
         'Дизайн': '#aebaba',
         'Разработка': '#bbb2cd',
@@ -104,16 +107,15 @@ const MainPage = () => {
                         className='birzha-item'
                         key={item.id}
                         style={{ backgroundColor: categoryColors[item.category], padding: '10px', borderRadius: '5px', margin: '5px' }}
-                    onClick={toggleDrawer(true)}>   
+                        onClick={toggleDrawer(true, item)}
+                    >   
                         <div className='birzha-item-topline'>
-                        {categoryIcons[item.category]}
-                        <div className='birzha-item-time'>около 1 часа назад</div>
+                            {categoryIcons[item.category]}
+                            <div className='birzha-item-time'>около 1 часа назад</div>
                         </div>
-                        
                         <div className='birzha-item-about'>{item.text}</div>
-                        {/* {item.text} - {item.category} - {item.price} */}
                         <div className='birzha-item-downline'>
-                            <CreditCardIcon fontSize='medium'/>Цена:
+                            <CreditCardIcon fontSize='medium' />Цена:
                             <div className='birzha-item-price'>договорная</div>
                         </div>
                     </div>
@@ -129,81 +131,47 @@ const MainPage = () => {
                 />
             </Stack>
             <Footer active={'active'} />
+            
             <Drawer
-        anchor='bottom'
-        open={open}
-        onClose={toggleDrawer(false)}
-        PaperProps={{
-          sx: {
-            height: 'auto',
-            minHeight:'90%',
-            borderTopLeftRadius: '16px',
-            borderTopRightRadius: '16px',
-            boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.2)',
-            backgroundColor: '#e5e6e0',
-            
-          },
-        }}
-      >
-         <Box
-        
-        sx={{
-          p: 2,
-          height: 'auto',
-          display: 'flex',
-          flexDirection: 'column',
-          
-        //   alignItems: 'center',
-          backgroundColor: '#e5e6e0',
-        }}
-      > 
-        <Box
-            sx={{
-              marginTop: '56px',
-              width: '100%',
-              maxWidth: '90%', // Ограничение по ширине контейнера
-             
-              textOverflow: 'ellipsis',
-              wordWrap: 'break-word',
-              wordBreak: 'break-word',
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: 'column',
-              padding: '5px',
-              position:'relative'
-              
-              
-              
-              
-              
-            }}
-          >
-            <Typography
-              variant='h5'
-              sx={{ 
-                color: 'white',
-                // wordWrap: 'break-word',
-                // whiteSpace: 'normal',
-                // textAlign: 'center', // Это опционально и зависит от вашего желаемого выравнивания текста
-                
-                width: '100%',       // Задать ширину элемента, чтобы текст знал рамки, в которых он может переноситься
-              }}
+                anchor='bottom'
+                open={open}
+                onClose={toggleDrawer(false)}
+                PaperProps={{
+                    sx: {
+                        height: '90%',
+                        borderTopLeftRadius: '16px',
+                        borderTopRightRadius: '16px',
+                        boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.2)',
+                        backgroundColor: '#e5e6e0',
+                    },
+                }}
             >
-             
-            </Typography>
-            
-          </Box>
+                <Box sx={{ p: 2 }}>
+                <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Typography variant="h6">{currentTask ? currentTask.text : 'Задача не выбрана'}</Typography>
+                    <Typography variant="p">Около 1 часа назад</Typography>
+                    <IconButton onClick={toggleDrawer(false)}>
+                        <CloseIcon fontSize="large" />
+                    </IconButton>
+                </Box>
 
-          <IconButton
-            sx={{ position: 'fixed', top: 88, right: 26, color: 'bkack' }}
-            onClick={toggleDrawer(false)}
-          >
-            <CloseIcon fontSize='large' />
-          </IconButton></Box>
-     
-      </Drawer>
+                    {currentTask ? (
+                        <>
+                           
+                           <div className='task-text-in-popup-container'>
+                            <Typography className='task-text-in-popup' variant="body2">{currentTask.full_text || 'Нет дополнительной информации'}</Typography>
+                            </div>
+                            <div className='task-text-button'>
+                                <div className='task-text-button-text'>Откликнуться</div>
+                                <DoneOutlineIcon/>
+                            </div>
+                        </>
+                    ) : (
+                        <Typography variant="body2">Задача не выбрана</Typography>
+                    )}
+                </Box>
+            </Drawer>
         </div>
-        
     );
 };
 
